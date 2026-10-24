@@ -9,7 +9,9 @@ from fastapi.staticfiles import StaticFiles
 BASE_DIR = Path(__file__).resolve().parent
 app = FastAPI(title="GhostChat MVP")
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
-
+print("BASE_DIR:", BASE_DIR)
+print("ROOT FILES:", [p.name for p in BASE_DIR.iterdir()])
+print("STATIC EXISTS:", (BASE_DIR / "static").exists())
 
 class ChatHub:
     def __init__(self):
